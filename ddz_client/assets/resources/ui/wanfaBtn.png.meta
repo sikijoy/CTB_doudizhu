@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "a57d256c-f3fb-487e-85fb-690b36023afd",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "wanfaBtn": {
+      "ver": "1.0.3",
+      "uuid": "9bd8b2b0-a45f-4e1c-8468-311221978aba",
+      "rawTextureUuid": "a57d256c-f3fb-487e-85fb-690b36023afd",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -4,
+      "offsetY": -1,
+      "trimX": 0,
+      "trimY": 2,
+      "width": 107,
+      "height": 106,
+      "rawWidth": 115,
+      "rawHeight": 108,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

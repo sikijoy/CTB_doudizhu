@@ -1,0 +1,19 @@
+{
+  "name": "ddz_server",
+  "version": "1.0.0",
+  "description": "ctb_ddz_server",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "ddz_server"
+  ],
+  "author": "chj",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.16.0",
+    "socket.io": "^2.1.1"
+  }
+}

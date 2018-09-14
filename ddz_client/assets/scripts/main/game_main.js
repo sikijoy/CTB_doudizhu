@@ -9,6 +9,7 @@ cc.Class({
         barrage_back: {default: null, type: cc.Node},                       //弹幕 背景节点
         scheduler: null,                                                    //弹幕计时器
         joinRoomPrefabs : {default: null, type: cc.Prefab},                 //加入房间 预设
+        createRoomPrefabs: {default: null, type: cc.Prefab},                //
 
     },
 
@@ -52,6 +53,10 @@ cc.Class({
             case 'joinRoom': let joinRoom = cc.instantiate(this.joinRoomPrefabs);
                              joinRoom.parent = this.node;
 
+                break;
+            case 'createRoom': let createRoom = cc.instantiate(this.createRoomPrefabs);
+                               createRoom.parent = this.node;
+                               
                 break;
             default:
                 break;

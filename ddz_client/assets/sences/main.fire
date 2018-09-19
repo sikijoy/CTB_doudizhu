@@ -2288,7 +2288,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "2",
+    "_N$string": "0",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -2470,7 +2470,7 @@
       "__id__": 72
     },
     "_enabled": true,
-    "transition": 0,
+    "transition": 3,
     "pressedColor": {
       "__type__": "cc.Color",
       "r": 211,
@@ -2524,7 +2524,7 @@
       "__id__": 2
     },
     "component": "game_main",
-    "handler": "LoginBtnClick",
+    "handler": "BtnClick",
     "customEventData": "createRoom"
   },
   {
@@ -14711,6 +14711,18 @@
     },
     "createRoomPrefabs": {
       "__uuid__": "b5abad4b-3acc-45a6-a3d2-528c57f77c9e"
+    },
+    "player_img": {
+      "__id__": 51
+    },
+    "player_id_label": {
+      "__id__": 45
+    },
+    "player_name": {
+      "__id__": 42
+    },
+    "player_house_count": {
+      "__id__": 66
     }
   }
 ]

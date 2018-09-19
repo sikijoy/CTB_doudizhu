@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+const mysql = require('mysql') || {};
 //创建一个连接池,我们每次要发送 sql语句给mysql server都通过这个链接池来获得链接对象;
 //链接对象的有效性就由这个连接池来负责管理
 //避免mysql在一段时间后,没有数据通讯的情况下回自动关闭链接通道

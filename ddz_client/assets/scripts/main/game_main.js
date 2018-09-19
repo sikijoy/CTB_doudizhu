@@ -11,13 +11,20 @@ cc.Class({
         joinRoomPrefabs : {default: null, type: cc.Prefab},                 //加入房间 预设
         createRoomPrefabs: {default: null, type: cc.Prefab},                //
 
+        player_img: {default: null, type: cc.Sprite},                       //玩家 图片
+        player_id_label: {default: null, type: cc.Label},                   //玩家id
+        player_name: {default: null, type: cc.Label},                        //玩家 名字
+        player_house_count: {default: null, type: cc.Label},                 //玩家房卡
+
     },
 
 
      onLoad () {
-        global.socket.init();                                               //建立连接
+                                                     
         // global.socket.onLogin();
         this.login_btn = cc.find('New Button',this.node);
+        this.PlayInit();
+
      },
 
     start () {
@@ -28,28 +35,21 @@ cc.Class({
       });
       */
 
-      this.login_btn.on('click', () => this.LoginBtnClick('wx'), this);
+      this.login_btn.on('click', () => this.BtnClick('wx'), this);
       this.scheduler = cc.director.getScheduler();
       this.Barrage(this.barrage_str);
 
 
     },
 
-    LoginBtnClick(event, customData)
+    //按钮点击 事件
+    BtnClick(event, customData)
     {
         console.log(customData);
         switch (customData) {
             case 'wx':
-                global.socket.login(
-                    global.playerDataManage.playerData.uniqueID,
-                    global.playerDataManage.playerData.uid,
-                    global.playerDataManage.playerData.gameName,
-                    global.playerDataManage.playerData.headUrl,
-                    global.playerDataManage.playerData.houseCardCount,function(err, data){
-                        if(err) console.log('login err' + err);
-                        else console.log('login data = ' + JSON.stringify(data));
-
-                    });
+               
+                break;
             case 'joinRoom': let joinRoom = cc.instantiate(this.joinRoomPrefabs);
                              joinRoom.parent = this.node;
 
@@ -68,7 +68,9 @@ cc.Class({
         
      },
 
-    Barrage(barrage_str){
+
+    // 弹幕 移动
+    Barrage(barrage_str) {
         this.tipstr.string = barrage_str;
         this.scheduler.scheduleUpdate(this, 10, false, (dt) => {
             this.tipstr.node.position = cc.v2(this.tipstr.node.position.x - 4, this.tipstr.node.position.y);
@@ -79,6 +81,33 @@ cc.Class({
     },
 
 
+    //玩家 初始化
+    PlayInit(){
+        this.player_id_label.string = global.playerDataManage.playerData.uid;
+        this.player_name.string = global.playerDataManage.playerData.gameName;
+        this.player_house_count.string = global.playerDataManage.playerData.houseCardCount;
+        let url = global.playerDataManage.playerData.headUrl;
+        this.loadImg(this.player_img, url);
+    },
+
+
+    //远程加载图片
+    //动态加载图片的方法
+    loadImg (target_sprite, url){
+        cc.loader.load(url, (err, texture) => {
+            if(err) console.log('load img err =' + err);
+            else {
+                var sprite = new cc.SpriteFrame(texture);
+                let old_width = target_sprite.node.width;
+                let old_height = target_sprite.node.height;
+                target_sprite.spriteFrame = sprite;
+                target_sprite.node.scale = {
+                    x: old_width / target_sprite.node.width,
+                    y: old_height / target_sprite.node.height
+                };
+            }
+        });
+    },
 
 
 });

@@ -22,7 +22,8 @@ cc.Class({
                 break;
             case 'create':
                 console.log("create room success");
-                cc.director.loadScene('gameSence');
+               // cc.director.loadScene('gameSence');
+
                 break;
             case '':
         }

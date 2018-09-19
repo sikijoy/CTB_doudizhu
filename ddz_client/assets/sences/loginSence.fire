@@ -21,7 +21,7 @@
     "_active": true,
     "_components": [],
     "_prefab": null,
-    "_id": "cdvc6zlitORrqGNfjabqs3",
+    "_id": "07a2373c-9b14-4115-9dfb-d236b05aeb5e",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -44,7 +44,8 @@
     "_localZOrder": 0,
     "_globalZOrder": 0,
     "_opacityModifyRGB": false,
-    "groupIndex": 0
+    "groupIndex": 0,
+    "autoReleaseAssets": false
   },
   {
     "__type__": "cc.Node",
@@ -62,7 +63,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 11
+        "__id__": 13
       }
     ],
     "_prefab": null,
@@ -118,10 +119,13 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 9
+        "__id__": 10
       },
       {
-        "__id__": 10
+        "__id__": 11
+      },
+      {
+        "__id__": 12
       }
     ],
     "_prefab": null,
@@ -163,7 +167,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Button",
+    "_name": "btn_lv2",
     "_objFlags": 0,
     "_parent": {
       "__id__": 3
@@ -184,7 +188,7 @@
       }
     ],
     "_prefab": null,
-    "_id": "3bGyUY/apH0YN9Qoa2tn6x",
+    "_id": "7a7N5PmSBDXLEvtwECH/hu",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -201,8 +205,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100,
-      "height": 40
+      "width": 203,
+      "height": 64
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -210,8 +214,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
+      "x": 51,
+      "y": -160
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -222,7 +226,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Label",
+    "_name": "New Label",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
@@ -236,13 +240,13 @@
       }
     ],
     "_prefab": null,
-    "_id": "e0dWOEG/RJ56OPWaYnRuDm",
+    "_id": "a3SYPYgcdPdJElyQ6c+1Qp",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -253,7 +257,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100,
+      "width": 120,
       "height": 40
     },
     "_rotationX": 0,
@@ -281,18 +285,18 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_actualFontSize": 40,
-    "_fontSize": 20,
+    "_actualFontSize": 30,
+    "_fontSize": 30,
     "_lineHeight": 40,
-    "_enableWrapText": false,
+    "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "button",
+    "_N$string": "微信登陆",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
-    "_N$overflow": 1
+    "_N$overflow": 0
   },
   {
     "__type__": "cc.Sprite",
@@ -303,10 +307,10 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "f0048c10-f03e-4c97-b9d3-3506e1d58952"
+      "__uuid__": "41e7e54e-d5ab-4e34-a8b6-f5cfb66f50e0"
     },
-    "_type": 1,
-    "_sizeMode": 0,
+    "_type": 0,
+    "_sizeMode": 1,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -328,12 +332,12 @@
       "__id__": 4
     },
     "_enabled": true,
-    "transition": 2,
+    "transition": 3,
     "pressedColor": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 211,
+      "g": 211,
+      "b": 211,
       "a": 255
     },
     "hoverColor": {
@@ -345,44 +349,45 @@
     },
     "duration": 0.1,
     "zoomScale": 1.2,
-    "clickEvents": [],
+    "clickEvents": [
+      {
+        "__id__": 9
+      }
+    ],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$normalColor": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 214,
+      "g": 214,
+      "b": 214,
       "a": 255
     },
     "_N$disabledColor": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 124,
+      "g": 124,
+      "b": 124,
       "a": 255
     },
-    "_N$normalSprite": {
-      "__uuid__": "f0048c10-f03e-4c97-b9d3-3506e1d58952"
-    },
-    "_N$pressedSprite": {
-      "__uuid__": "e9ec654c-97a2-4787-9325-e6a10375219a"
-    },
-    "pressedSprite": {
-      "__uuid__": "e9ec654c-97a2-4787-9325-e6a10375219a"
-    },
-    "_N$hoverSprite": {
-      "__uuid__": "e9ec654c-97a2-4787-9325-e6a10375219a"
-    },
-    "hoverSprite": {
-      "__uuid__": "e9ec654c-97a2-4787-9325-e6a10375219a"
-    },
-    "_N$disabledSprite": {
-      "__uuid__": "29158224-f8dd-4661-a796-1ffab537140e"
-    },
+    "_N$normalSprite": null,
+    "_N$pressedSprite": null,
+    "pressedSprite": null,
+    "_N$hoverSprite": null,
+    "hoverSprite": null,
+    "_N$disabledSprite": null,
     "_N$target": {
       "__id__": 4
     }
+  },
+  {
+    "__type__": "cc.ClickEvent",
+    "target": {
+      "__id__": 3
+    },
+    "component": "login",
+    "handler": "onBtnClick",
+    "customEventData": "wxLogin"
   },
   {
     "__type__": "cc.Sprite",
@@ -409,6 +414,16 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_atlas": null
+  },
+  {
+    "__type__": "d6d20dacytPholNEkx1IkCH",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 3
+    },
+    "_enabled": true,
+    "make_node": null
   },
   {
     "__type__": "cc.Widget",

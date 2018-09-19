@@ -1,6 +1,7 @@
 const socket = require('socket.io');
 let mysql_client = require('./utility/mysqldb');
 const playerController = require('./game/player');
+const eventListener = require('./utility/eventListener');
 
 const app = socket.listen(3000);
 mysql_client.connect();        //与数据库建立连接
@@ -13,6 +14,15 @@ let test_data2 = {uid: '12346', game_name: '张世勇', head_url: 'sina.com', ho
 //mysql_client.insertPlayer(test_data);
 mysql_client.updatePlayer( 'unique_id', '100001', test_data2);
 */
+
+let event = eventListener({});
+
+// event.on('test', [(p1) => {
+//     console.log('p1 =' + p1);
+// }]);
+//
+// event.emit('test', 'ok')
+
 
 app.on('connection', (socket) => {
     console.log('a client connect');
@@ -28,7 +38,7 @@ app.on('connection', (socket) => {
        switch (msg) {
            case 'login':
                mysql_client.cheackPlayer(eventData.uniqueID, (err, sql_resulet) =>{
-               if(err) consoel.log('err', err);
+               if(err) console.log('err', err);
                if(sql_resulet.length === 0) {  //数据库中没有该玩家
 
                    console.log('数据库中没有该玩家,玩家不存在');
@@ -54,12 +64,14 @@ app.on('connection', (socket) => {
                            //更新玩家数据
                    console.log('数据库中有该玩家  更新玩家数据');
                    mysql_client.updatePlayer('unique_id', eventData.uniqueID, {
+                       uid: eventData.uid,
                        game_name: eventData.gameName,
                        head_url: eventData.headUrl,
                        house_card_count: eventData.houseCardCount
                    });
 
                    playerController.createPlayer(socket, {
+                       uniqueID: eventData.uniqueID,
                        uid: sql_resulet[0].uid,
                        gameName: eventData.gameName,
                        headUrl: eventData.headUrl,
@@ -71,6 +83,7 @@ app.on('connection', (socket) => {
 
            });
                break;
+
            default:
                break;
 

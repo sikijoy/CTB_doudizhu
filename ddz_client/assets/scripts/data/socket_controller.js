@@ -31,13 +31,19 @@ const Socket_Controller = function ( ) {
         Resquest('login',{uniqueID: unique, uid: uid, gameName: nickname, headUrl: head,
                 houseCardCount: house_card_count}, callback);
 
-    }.bind(this);
+    }
+
+    that.createRoom = function(data, callback){
+        Resquest('createRoom', data, callback);
+    }
 
     // that.onLogin = function (data) {
     //     _socket.on('login', (data) => {
     //         console.log('login = ' + JSON.stringify(data));
     //     });
     // };
+
+
         
     return that;
 }

@@ -1,4 +1,5 @@
 import defines from '../defines'
+import EventListener from './../uitility/eventListener'
 
 const Socket_Controller = function ( ) {
     let self = this;
@@ -6,11 +7,14 @@ const Socket_Controller = function ( ) {
     let _socket = undefined;
     let _callBackMap = {};
     let _callBackIndex = 1;
+    let _event = EventListener({});
 
     that.init = function () {
         _socket = io(defines.serverUrl);
         _socket.on('notify', (event) => {
            console.log('notify =' + JSON.stringify(event));
+           let msg = event.msg;
+           _evnet.emit(msg, event.data);
            let callBackIndex = event.callBackIndex;
            let callBack = _callBackMap[callBackIndex];
            if(callBack) callBack(null,event);

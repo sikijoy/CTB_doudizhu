@@ -8207,7 +8207,7 @@
     },
     "component": "createRoom",
     "handler": "onBtnClick",
-    "customEventData": "create"
+    "customEventData": "create_room"
   },
   {
     "__type__": "cc.PrefabInfo",

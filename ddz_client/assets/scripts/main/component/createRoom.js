@@ -1,4 +1,4 @@
-
+import global from '../../global'
 
 cc.Class({
     extends: cc.Component,
@@ -20,12 +20,20 @@ cc.Class({
             case 'close':
                 this.node.destroy();
                 break;
-            case 'create':
+            case 'create_room':
                 console.log("create room success");
-               // cc.director.loadScene('gameSence');
 
+                global.socket.createRoom('create room',(err, data) => {
+                    if(err) console.log('create err' + err);
+                    else{
+                        console.log('create room data = ' + JSON.stringify(data));
+                        cc.director.loadScene('gameSence');
+                    }
+
+                });
                 break;
-            case '':
+            default:
+                break;
         }
 
     },

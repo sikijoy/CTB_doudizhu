@@ -20,7 +20,7 @@ const Player = function (socket, data) {
     //         houseCardCount: _houseCardCount
     //     }});
 
-    notiyi('login', data.callBackIndex, {
+     notiyi('login', data.callBackIndex, {
         uniqueID: _uniqueID,
         uid: _uid,
         gameName: _ganmeName,

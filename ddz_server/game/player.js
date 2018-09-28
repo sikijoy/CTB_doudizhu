@@ -1,3 +1,5 @@
+const gameController = require('./gameController');
+
 const Player = function (socket, data) {
     let that ={};
     let _socket = socket;
@@ -12,7 +14,7 @@ const Player = function (socket, data) {
         _socket.emit('notify', {msg: msg, callBackIndex: index, data: data});
     }
 
-    // _socket.emit('notify', {msg: 'login', callBackIndex: _callBackIndex, data: {
+    // _socket.emit('notify', {msg: 'login', callBa ckIndex: _callBackIndex, data: {
     //         uniqueID: _uniqueID,
     //         uid: _uid,
     //         gameName: _ganmeName,
@@ -34,12 +36,22 @@ const Player = function (socket, data) {
         let data = event.data;
 
         switch (msg) {
-            case 'create_room':
+            case 'createRoom':
                 console.log("创建房间");
-                notiyi('create_room', callBackIndex, 'create room success');
+              //  notiyi('create_room', callBackIndex, 'create room success');
+                gameController.createRoom(data, (err, resp) => {
+                    if(err) console.log('创建房间失败' + err);
+                    else{
+                        notiyi('careatRoom', callBackIndex, {roomID: resp})
+        }
+    });
                 break;
 
-
+            case 'joinRoom':
+                gameController.joinRoom(data.roomID, that, (err, resp) => {
+                    notiyi('joinRoom', callBackIndex, {err: err, data: resp});
+                });
+                break;
             default:
 
                 break;

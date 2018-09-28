@@ -14,7 +14,7 @@ const Socket_Controller = function ( ) {
         _socket.on('notify', (event) => {
            console.log('notify =' + JSON.stringify(event));
            let msg = event.msg;
-           _evnet.emit(msg, event.data);
+            _event.emit(msg, event.data);
            let callBackIndex = event.callBackIndex;
            let callBack = _callBackMap[callBackIndex];
            if(callBack) callBack(null,event);
@@ -23,6 +23,7 @@ const Socket_Controller = function ( ) {
 
     function Notify (msg, data){
         _socket.emit('notify',  {msg: msg, callBackIndex: _callBackIndex, data: data});
+        console.log('event =' + JSON.stringify(data));
         _callBackIndex ++;
     }
 
@@ -47,7 +48,9 @@ const Socket_Controller = function ( ) {
     //     });
     // };
 
-
+    that.joinRoom = function (roomID, callback) {
+        Resquest('joinRoom', roomID, callback);
+    }
         
     return that;
 }

@@ -31,7 +31,7 @@ app.on('connection', (socket) => {
 
     //收到玩家登陆消息
     socket.on('notify',(event) => {
-       console.log('a user login = ' + JSON.stringify(event));
+       console.log('app notify = ' + JSON.stringify(event));
        let eventData = event.data;
        let callBackIndex = event.callBackIndex;
        let msg = event.msg;

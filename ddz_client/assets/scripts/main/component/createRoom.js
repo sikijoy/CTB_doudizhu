@@ -23,14 +23,20 @@ cc.Class({
             case 'create_room':
                 console.log("create room success");
 
-                global.socket.createRoom('create room',(err, data) => {
+                global.socket.createRoom('create room',(err, event) => {
                     if(err) console.log('create err' + err);
                     else{
-                        console.log('create room data = ' + JSON.stringify(data));
-                        cc.director.loadScene('gameSence');
+                        console.log('create room data = ' + JSON.stringify(event));
+
+                        global.socket.joinRoom(event.data, (err, resp) => {
+                            if(err){
+                                console.log('client creatroom err =' + err);
+                            }else cc.director.loadScene('gameSence');
+                        });
                     }
 
                 });
+                this.node.destroy();
                 break;
             default:
                 break;

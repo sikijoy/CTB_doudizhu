@@ -25,6 +25,10 @@ let PlayerData = function(){
 
 
     }
+
+    that.joinRoomSuccess = function (config, data){
+
+    };
     return that;
 }
 export default PlayerData;

@@ -1,0 +1,21 @@
+{
+  "turn_count":{
+    "count1": 5,
+    "count2": 10
+  },
+  "house_card_count":{
+    "house_card_count1": 1,
+    "house_card_count2": 2
+  },
+  "special_rule":{
+    "type1": {                          //炸弹2 王炸3
+      "king_bomb": 3,
+      "normal_bomb": 2
+    },
+    "type2":  {                         //炸弹3 王炸4
+      "king_bomb": 4,
+      "normal_bomb": 3
+    }
+  }
+
+}

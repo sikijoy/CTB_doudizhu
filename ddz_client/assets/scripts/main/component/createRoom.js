@@ -4,18 +4,22 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-      
+      createRoom_config: null,
+
     },
 
     // LIFE-CYCLE CALLBACKS:
 
-     onLoad () {},
+     onLoad () {
+         this.createRoom_config = {turnCount: 5, special_rule: {"king_bomb": 3, "normal_bomb": 2}}
+     },
 
     start () {
 
     },
 
     onBtnClick(event, customData) {
+        let self = this;
         switch(customData) {
             case 'close':
                 this.node.destroy();
@@ -23,7 +27,7 @@ cc.Class({
             case 'create_room':
                 console.log("create room success");
 
-                global.socket.createRoom('create room',(err, event) => {
+                global.socket.createRoom(self.createRoom_config,(err, event) => {
                     if(err) console.log('create err' + err);
                     else{
                         console.log('create room data = ' + JSON.stringify(event));
@@ -40,6 +44,13 @@ cc.Class({
                 break;
             default:
                 break;
+
+            if(customData.indexOf('count1') ===0){
+                this.createRoom_config.turnCount = 5;
+            }
+            if(customData.indexOf('type1') ===0){
+                this.createRoom_config.special_rule = {"king_bomb": 3, "normal_bomb": 2};
+            }
         }
 
     },

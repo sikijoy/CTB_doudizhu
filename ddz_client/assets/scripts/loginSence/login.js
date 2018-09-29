@@ -11,7 +11,12 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
      onLoad () {
-        global.socket.init();  //建立连接
+        cc.loader.loadResArray(['config/createRoom'], (err, res) => {
+            console.log('res =' + JSON.stringify(res));
+            global.socket.init();  //建立连接
+        });
+
+
 
      },
 

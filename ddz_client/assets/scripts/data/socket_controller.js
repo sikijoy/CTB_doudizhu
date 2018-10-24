@@ -1,4 +1,5 @@
-import defines from '../defines'
+//import defines from '../defines'
+
 import EventListener from './../uitility/eventListener'
 
 const Socket_Controller = function ( ) {
@@ -12,7 +13,7 @@ const Socket_Controller = function ( ) {
     that.init = function () {
         _socket = io(defines.serverUrl);
         _socket.on('notify', (event) => {
-           console.log('notify =' + JSON.stringify(event));
+           console.log('on notify =' + JSON.stringify(event));
            let msg = event.msg;
             _event.emit(msg, event.data);
            let callBackIndex = event.callBackIndex;
@@ -51,7 +52,15 @@ const Socket_Controller = function ( ) {
     that.joinRoom = function (roomID, callback) {
         Resquest('joinRoom', roomID, callback);
     }
+
+    that.notifyGameSenceLoadEnd = function () {
+        Notify('gameSenceLoadEnd',  {});
+    }
+
+
         
     return that;
 }
 export default Socket_Controller;
+
+

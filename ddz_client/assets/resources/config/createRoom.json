@@ -8,11 +8,11 @@
     "house_card_count2": 2
   },
   "special_rule":{
-    "type1": {                          //炸弹2 王炸3
+    "type1": {                             
       "king_bomb": 3,
       "normal_bomb": 2
     },
-    "type2":  {                         //炸弹3 王炸4
+    "type2":  {                          
       "king_bomb": 4,
       "normal_bomb": 3
     }

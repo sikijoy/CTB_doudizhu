@@ -11,13 +11,22 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
      onLoad () {
-        cc.loader.loadResArray(['config/createRoom'], (err, res) => {
-            console.log('res =' + JSON.stringify(res));
-            global.socket.init();  //建立连接
+        // cc.loader.loadResArray(['config/createRoom'], (err, res) => {
+        //     console.log('res =' + JSON.stringify(res));
+        //     global.socket.init();  //建立连接
+        // });
+
+        let gameConfig = defines.gameConfig;
+        let resList = [];
+        for (let i in gameConfig){
+            resList.push(gameConfig[i]);
+        }
+        global.playerDataManage.resManager.loadList(resList, () => {
+           console.log('加载资源成功');
+           console.log('resource = ' + JSON.stringify(global.playerDataManage.resManager.resources));
+
+           global.socket.init();
         });
-
-
-
      },
 
     start () {

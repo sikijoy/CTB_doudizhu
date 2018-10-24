@@ -9,9 +9,11 @@ const Player = function (socket, data) {
     let _headUrl = data.headUrl;
     let _houseCardCount = data.houseCardCount;
     let _callBackIndex = data.callBackIndex;
+    let _room = undefined;
 
     const notiyi = function (msg, index, data) {
         _socket.emit('notify', {msg: msg, callBackIndex: index, data: data});
+        console.log('event data = ' + JSON.stringify(data));
     }
 
     // _socket.emit('notify', {msg: 'login', callBa ckIndex: _callBackIndex, data: {
@@ -42,15 +44,23 @@ const Player = function (socket, data) {
                 gameController.createRoom(data, (err, resp) => {
                     if(err) console.log('创建房间失败' + err);
                     else{
-                        notiyi('careatRoom', callBackIndex, {roomID: resp})
+                        notiyi('careatRoom', callBackIndex, {roomID: resp})       //todo
         }
     });
                 break;
 
             case 'joinRoom':
                 gameController.joinRoom(data.roomID, that, (err, resp) => {
-                    notiyi('joinRoom', callBackIndex, {err: err, data: resp});
+
+                    let roomInfo = resp.resp;
+                    let _room = resp.room;
+                    console.log('room = ' + resp.room.roomID);
+                    notiyi('joinRoom', callBackIndex, {err: err, data: roomInfo});
                 });
+                break;
+
+            case 'gameSenceLoadEnd':
+                console.log('game sence load end');
                 break;
             default:
 

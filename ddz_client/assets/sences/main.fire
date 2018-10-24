@@ -14714,8 +14714,7 @@
       "__id__": 194
     },
     "_enabled": true,
-    "turnCount": 5,
-    "special_rule": "type1"
+    "createRoom_config": null
   },
   {
     "__type__": "cc.PrefabInfo",
